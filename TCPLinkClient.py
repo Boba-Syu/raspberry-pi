@@ -4,10 +4,14 @@ import threading
 
 
 class TCPLinkClient(threading.Thread):
+    """
+    使用TCP连接服务器的
+    """
+
     def __init__(self, port: int = 8888):
         threading.Thread.__init__(self)
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.host = '192.168.199.195' # socket.gethostname()
+        self.host = '192.168.199.195'  # socket.gethostname()
         self.port = port
         try:
             self.socket.connect((self.host, self.port))
@@ -35,6 +39,6 @@ if __name__ == '__main__':
     while True:
         msg = input()
         if msg == 'quit':
+            tcpLink.close()
             break
         tcpLink.send(msg)
-    tcpLink.close()
