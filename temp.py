@@ -1,5 +1,7 @@
 import time
 
+from databaseOperation import MysqlLink
+
 
 def read_temperature():
     tfile = open("/sys/bus/w1/devices/28-01204419ecb5/w1_slave")
@@ -16,4 +18,6 @@ if __name__ == '__main__':
     while True:
         temperature = read_temperature()
         print(temperature)
+        mysql = MysqlLink()
+        mysql.insert_temp(temperature=temperature)
         time.sleep(1)
