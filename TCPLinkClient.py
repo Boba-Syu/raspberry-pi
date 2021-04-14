@@ -35,7 +35,7 @@ class TCPLinkClient(threading.Thread):
                 if msg == str(InstructionEnum.OPEN_MOTION.value):
                     logging.info('打开摄像头')
                     motion.open_motion()
-                elif msg == str(InstructionEnum.CLOSE_MOTION):
+                elif msg == str(InstructionEnum.CLOSE_MOTION.value):
                     logging.info('关闭摄像头')
                     motion.stop_motion()
 
