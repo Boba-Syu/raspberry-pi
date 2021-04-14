@@ -2,7 +2,7 @@ import time
 
 
 def read_temperature():
-    tfile = open("/sys/bus/w1/devices/28-000004d618fa/w1_slave")
+    tfile = open("/sys/bus/w1/devices/28-01204419ecb5/w1_slave")
     text = tfile.read()
     tfile.close()
     secondline = text.split("\n")[1]
