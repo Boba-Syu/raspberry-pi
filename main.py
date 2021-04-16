@@ -7,8 +7,9 @@ from databaseOperation import MysqlLink
 if __name__ == '__main__':
     tcpLink = TCPLinkClient(6666)
     tcpLink.start()
-    temperature = temp.read_temperature()
-    print(temperature)
-    mysql = MysqlLink()
-    mysql.insert_temp(temperature=temperature)
-    time.sleep(1)
+    while True:
+        temperature = temp.read_temperature()
+        print(temperature)
+        mysql = MysqlLink()
+        mysql.insert_temp(temperature=temperature)
+        time.sleep(1)
