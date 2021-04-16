@@ -5,6 +5,7 @@ import socket
 import logging
 import threading
 
+import gpio_feed
 import motion
 from InstructionEnum import InstructionEnum
 
@@ -38,6 +39,10 @@ class TCPLinkClient(threading.Thread):
                 elif msg == str(InstructionEnum.CLOSE_MOTION.value):
                     logging.info('关闭摄像头')
                     motion.stop_motion()
+                elif msg == str(InstructionEnum.FEED.value):
+                    logging.info('喂食')
+                    gpio_feed.feed()
+
 
     def send(self, data: str):
         self.socket.send(data.encode(encoding='utf-8'))

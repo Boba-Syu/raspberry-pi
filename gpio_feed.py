@@ -14,6 +14,12 @@ def setServoAngle(angle):
     tilt.stop()
 
 
+def feed():
+    setServoAngle(90)
+    time.sleep(20)
+    setServoAngle(0)
+
+
 if __name__ == '__main__':
     c = input("If you want to continue, type 'c' please. Type 'e' to end.")
     while c == 'c':
