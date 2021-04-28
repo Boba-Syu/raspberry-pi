@@ -12,4 +12,4 @@ if __name__ == '__main__':
         print(temperature)
         mysql = MysqlLink()
         mysql.insert_temp(temperature=temperature)
-        time.sleep(1)
+        time.sleep(10)

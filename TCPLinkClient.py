@@ -42,7 +42,9 @@ class TCPLinkClient(threading.Thread):
                 elif msg == str(InstructionEnum.FEED.value):
                     logging.info('喂食')
                     gpio_feed.feed()
-
+                elif msg == str(InstructionEnum.FEED_OFF.value):
+                    logging.info('停止喂食')
+                    gpio_feed.feed_off()
 
     def send(self, data: str):
         self.socket.send(data.encode(encoding='utf-8'))

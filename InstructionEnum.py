@@ -7,3 +7,4 @@ class InstructionEnum(Enum):
     FEED = 3
     OPEN_MOTION = 4
     CLOSE_MOTION = 5
+    FEED_OFF = 6

@@ -16,7 +16,9 @@ def setServoAngle(angle):
 
 def feed():
     setServoAngle(90)
-    time.sleep(20)
+
+
+def feed_off():
     setServoAngle(0)
 
 
