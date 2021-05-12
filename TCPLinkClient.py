@@ -8,7 +8,7 @@ import threading
 import gpio_feed
 import motion
 from InstructionEnum import InstructionEnum
-
+import  gpio_fan
 
 class TCPLinkClient(threading.Thread):
     """
@@ -45,6 +45,12 @@ class TCPLinkClient(threading.Thread):
                 elif msg == str(InstructionEnum.FEED_OFF.value):
                     logging.info('停止喂食')
                     gpio_feed.feed_off()
+                elif msg == str(InstructionEnum.HEAT_DOWM.value):
+                    logging.info("风扇开")
+                    gpio_fan.open_fan()
+                elif msg == str(InstructionEnum.HEAT_UP.value):
+                    logging.info("风扇关")
+                    gpio_fan.stop_fan()
 
     def send(self, data: str):
         self.socket.send(data.encode(encoding='utf-8'))
